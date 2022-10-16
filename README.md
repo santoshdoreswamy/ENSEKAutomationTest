@@ -10,6 +10,7 @@
 
 **Contents:**
   1. ENSEK Technical Test - Test Evidence
+    
     a. Test Plan
     b. Test Cases
     c. Test Results - Evidence
@@ -27,6 +28,8 @@
   
     
   2. ENSEKCandidateTest
+
+
     # This is a Visual Studio Project that was created to automate few Test Cases / Scenarios for ENSEK Energy's Web Application testing.
     # The project is created as a NUnit Test Project in VS for Mac.
     # Tests are automated using BDD technique using C# scripting and Specflow for implementation.
