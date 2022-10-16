@@ -1,0 +1,335 @@
+{
+	"id": "a2fed594-570b-4791-aa70-68b7842b1000",
+	"name": "ENSEK API Test",
+	"timestamp": "2022-10-12T21:30:06.738Z",
+	"collection_id": "0-4caa8df9-c60e-4716-bb37-6b357757881c",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 32,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "4f3c6b98-bf1f-405e-b105-fdf089284655",
+			"name": "Login",
+			"url": "https://ensekapicandidatetest.azurewebsites.net/login",
+			"time": 145,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has a JSON body": true,
+				"Response has an access_token property": true,
+				"Response body matches string 'access_token'": true,
+				"Response message property contains the value 'Success'": true,
+				"Response time is less than 1000ms / 1s": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has a JSON body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has an access_token property": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body matches string 'access_token'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response message property contains the value 'Success'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms / 1s": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				145
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has a JSON body": true,
+					"Response has an access_token property": true,
+					"Response body matches string 'access_token'": true,
+					"Response message property contains the value 'Success'": true,
+					"Response time is less than 1000ms / 1s": true
+				}
+			]
+		},
+		{
+			"id": "c76a6388-6807-4f2e-af2a-9d96a5c8d9c1",
+			"name": "Energy",
+			"url": "https://ensekapicandidatetest.azurewebsites.net/energy",
+			"time": 130,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has a JSON body": true,
+				"Response contains Electric Object with expected ID and Unit Type": true,
+				"Response contains Gas Object with expected ID and Unit Type": true,
+				"Response contains Nuclear Object with expected ID and Unit Type": true,
+				"Response contains Oil Object with expected ID and Unit Type": true,
+				"Electric object in API Response contains expected properties": true,
+				"Gas object in API Response contains expected properties": true,
+				"Nuclear object in API Response contains expected properties": true,
+				"Oil object in API Response contains expected properties": true,
+				"Verify there are 4 objects in the API response array": true,
+				"Response time is less than 1000ms / 1s": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has a JSON body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains Electric Object with expected ID and Unit Type": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains Gas Object with expected ID and Unit Type": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains Nuclear Object with expected ID and Unit Type": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains Oil Object with expected ID and Unit Type": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Electric object in API Response contains expected properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Gas object in API Response contains expected properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Nuclear object in API Response contains expected properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Oil object in API Response contains expected properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify there are 4 objects in the API response array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms / 1s": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				130
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has a JSON body": true,
+					"Response contains Electric Object with expected ID and Unit Type": true,
+					"Response contains Gas Object with expected ID and Unit Type": true,
+					"Response contains Nuclear Object with expected ID and Unit Type": true,
+					"Response contains Oil Object with expected ID and Unit Type": true,
+					"Electric object in API Response contains expected properties": true,
+					"Gas object in API Response contains expected properties": true,
+					"Nuclear object in API Response contains expected properties": true,
+					"Oil object in API Response contains expected properties": true,
+					"Verify there are 4 objects in the API response array": true,
+					"Response time is less than 1000ms / 1s": true
+				}
+			]
+		},
+		{
+			"id": "da5044b7-13db-4f74-9e5e-5dabc9513a9a",
+			"name": "Buy Order",
+			"url": "https://ensekapicandidatetest.azurewebsites.net/buy/3/100",
+			"time": 127,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has a JSON body": true,
+				"Verify API Response contains message property & Order ID text": true,
+				"Response time is less than 1000ms / 1s": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has a JSON body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify API Response contains message property & Order ID text": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms / 1s": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				127
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has a JSON body": true,
+					"Verify API Response contains message property & Order ID text": true,
+					"Response time is less than 1000ms / 1s": true
+				}
+			]
+		},
+		{
+			"id": "c20ff564-3d8c-479a-b14d-fc755ad878da",
+			"name": "Orders",
+			"url": "https://ensekapicandidatetest.azurewebsites.net/orders",
+			"time": 125,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has a JSON body": true,
+				"Verify API Response contains all the expected properties": true,
+				"Response body contains Order data for Current Day: 12 Oct 2022": true,
+				"Response body contains Electric Order data for Current Day: 12 Oct 2022 with the order quantity as '100'": true,
+				"Response time is less than 1000ms / 1s": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has a JSON body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify API Response contains all the expected properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body contains Order data for Current Day: 12 Oct 2022": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body contains Electric Order data for Current Day: 12 Oct 2022 with the order quantity as '100'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms / 1s": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				125
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has a JSON body": true,
+					"Verify API Response contains all the expected properties": true,
+					"Response body contains Order data for Current Day: 12 Oct 2022": true,
+					"Response body contains Electric Order data for Current Day: 12 Oct 2022 with the order quantity as '100'": true,
+					"Response time is less than 1000ms / 1s": true
+				}
+			]
+		},
+		{
+			"id": "3c213726-1eba-429a-93fe-49a7b5d5d90f",
+			"name": "Reset",
+			"url": "https://ensekapicandidatetest.azurewebsites.net/reset",
+			"time": 126,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has a JSON body": true,
+				"Response message property contains the value 'Success'": true,
+				"Response time is less than 1000ms / 1s": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has a JSON body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response message property contains the value 'Success'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms / 1s": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				126
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has a JSON body": true,
+					"Response message property contains the value 'Success'": true,
+					"Response time is less than 1000ms / 1s": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 653,
+	"collection": {
+		"requests": [
+			{
+				"id": "4f3c6b98-bf1f-405e-b105-fdf089284655",
+				"method": "POST"
+			},
+			{
+				"id": "c76a6388-6807-4f2e-af2a-9d96a5c8d9c1",
+				"method": "GET"
+			},
+			{
+				"id": "da5044b7-13db-4f74-9e5e-5dabc9513a9a",
+				"method": "PUT"
+			},
+			{
+				"id": "c20ff564-3d8c-479a-b14d-fc755ad878da",
+				"method": "GET"
+			},
+			{
+				"id": "3c213726-1eba-429a-93fe-49a7b5d5d90f",
+				"method": "POST"
+			}
+		]
+	}
+}
