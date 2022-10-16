@@ -1,0 +1,442 @@
+{
+	"info": {
+		"_postman_id": "4caa8df9-c60e-4716-bb37-6b357757881c",
+		"name": "ENSEK API Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Automated API Validations for Login Function",
+							"",
+							"//Check API Response Status Code",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Check API Response contains a JSON body",
+							"pm.test(\"Response has a JSON body\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"//Check if API Response contains an access_token property",
+							"pm.test(\"Response has an access_token property\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.access_token).to.be.a('string');",
+							"});",
+							"",
+							"//Alternate less effective test to find 'acccess_token' string/text in the API Response",
+							"//Check API Response contains string 'access_token'",
+							"pm.test(\"Response body matches string 'access_token'\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"access_token\");",
+							"});",
+							"",
+							"//Check API Response message property has a value 'Success'",
+							"pm.test(\"Response message property contains the value 'Success'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql('Success');",
+							"});",
+							"",
+							"",
+							"//Verify the API Response time is under 1 second (1000ms)",
+							"pm.test(\"Response time is less than 1000ms / 1s\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"test\",\n  \"password\": \"testing\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ensekapicandidatetest.azurewebsites.net/login",
+					"protocol": "https",
+					"host": [
+						"ensekapicandidatetest",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Energy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Automated API Validations to verify Energy details",
+							"",
+							"//Check API Response Status Code",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Check API Response contains a JSON body",
+							"pm.test(\"Response has a JSON body\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"//Check if API Response contains an electric object",
+							"//pm.test(\"Response has Electric Object\", function () {",
+							"//    var jsonData = pm.response.json();",
+							"//    pm.expect(jsonData.electric).to.be.a('object');",
+							"//});",
+							"",
+							"//Check if API Response contains an gas object",
+							"//pm.test(\"Response has Gas Object\", function () {",
+							"//    var jsonData = pm.response.json();",
+							"//    pm.expect(jsonData.gas).to.be.a('object');",
+							"//});",
+							"",
+							"//Check if API Response contains an nuclear object",
+							"//pm.test(\"Response has Nuclear Object\", function () {",
+							"//    var jsonData = pm.response.json();",
+							"//    pm.expect(jsonData.nuclear).to.be.a('object');",
+							"//});",
+							"",
+							"//Check if API Response contains an oil object",
+							"//pm.test(\"Response has Oil Object\", function () {",
+							"//    var jsonData = pm.response.json();",
+							"//    pm.expect(jsonData.oil).to.be.a('object');",
+							"//});",
+							"",
+							"",
+							"//Check API Response contains Energy ID = '3' and Unit_Type='kWh' for Electric",
+							"pm.test(\"Response contains Electric Object with expected ID and Unit Type\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.electric).to.be.a('object') &&",
+							"    pm.expect(jsonData.electric.energy_id).to.eql(3) &&",
+							"    pm.expect(jsonData.electric.unit_type).to.eql('kWh');",
+							"});",
+							"",
+							"//Check API Response contains Energy ID = '1' and Unit_Type='m³' for Gas",
+							"pm.test(\"Response contains Gas Object with expected ID and Unit Type\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.gas).to.be.a('object') &&",
+							"    pm.expect(jsonData.gas.energy_id).to.eql(1) &&",
+							"    pm.expect(jsonData.gas.unit_type).to.eql('m³');",
+							"});",
+							"",
+							"//Check API Response contains Energy ID = '2' and Unit_Type='MW' for Nuclear",
+							"pm.test(\"Response contains Nuclear Object with expected ID and Unit Type\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.nuclear).to.be.a('object') &&",
+							"    pm.expect(jsonData.nuclear.energy_id).to.eql(2) &&",
+							"    pm.expect(jsonData.nuclear.unit_type).to.eql('MW');",
+							"});",
+							"",
+							"//Check API Response contains Energy ID = '4' and Unit_Type='Litres' for Oil",
+							"pm.test(\"Response contains Oil Object with expected ID and Unit Type\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.oil).to.be.a('object') &&",
+							"    pm.expect(jsonData.oil.energy_id).to.eql(4) &&",
+							"    pm.expect(jsonData.oil.unit_type).to.eql('Litres');",
+							"});",
+							"",
+							"//Check API Response contains expected properties for Electric",
+							"pm.test(\"Electric object in API Response contains expected properties\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.electric.energy_id).to.be.a(\"number\") &&",
+							"    pm.expect(jsonData.electric.price_per_unit).to.be.a(\"number\") &&",
+							"    pm.expect(jsonData.electric.quantity_of_units).to.be.a(\"number\") &&",
+							"    pm.expect(jsonData.electric.unit_type).to.be.a(\"string\");",
+							"});",
+							"",
+							"//Check API Response contains expected properties for Gas",
+							"pm.test(\"Gas object in API Response contains expected properties\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.gas.energy_id).to.be.a(\"number\") &&",
+							"    pm.expect(jsonData.gas.price_per_unit).to.be.a(\"number\") &&",
+							"    pm.expect(jsonData.gas.quantity_of_units).to.be.a(\"number\") &&",
+							"    pm.expect(jsonData.gas.unit_type).to.be.a(\"string\");",
+							"});",
+							"",
+							"//Check API Response contains expected properties for Nuclear",
+							"pm.test(\"Nuclear object in API Response contains expected properties\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.nuclear.energy_id).to.be.a(\"number\") &&",
+							"    pm.expect(jsonData.nuclear.price_per_unit).to.be.a(\"number\") &&",
+							"    pm.expect(jsonData.nuclear.quantity_of_units).to.be.a(\"number\") &&",
+							"    pm.expect(jsonData.nuclear.unit_type).to.be.a(\"string\");",
+							"});",
+							"",
+							"//Check API Response contains expected properties for Oil",
+							"pm.test(\"Oil object in API Response contains expected properties\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.oil.energy_id).to.be.a(\"number\") &&",
+							"    pm.expect(jsonData.oil.price_per_unit).to.be.a(\"number\") &&",
+							"    pm.expect(jsonData.oil.quantity_of_units).to.be.a(\"number\") &&",
+							"    pm.expect(jsonData.oil.unit_type).to.be.a(\"string\");",
+							"});",
+							"",
+							"",
+							"//Check the number of objects in the response is equal to 4",
+							"pm.test(\"Verify there are 4 objects in the API response array\", function (){",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.eql(4);",
+							"});",
+							"",
+							"",
+							"//Verify the API Response time is under 1 second (1000ms)",
+							"pm.test(\"Response time is less than 1000ms / 1s\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ensekapicandidatetest.azurewebsites.net/energy",
+					"protocol": "https",
+					"host": [
+						"ensekapicandidatetest",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"energy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buy Order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Automated API Validations for Buy/Purchase Function",
+							"",
+							"//Check API Response Status Code",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Check API Response contains a JSON body",
+							"pm.test(\"Response has a JSON body\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"//Check API Response contains message property and Order ID string/text value",
+							"pm.test(\"Verify API Response contains message property & Order ID text\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.be.a(\"string\") &&",
+							"    pm.expect(jsonData.message).to.include(\"Your order id is\");",
+							"});",
+							"",
+							"",
+							"//Verify the API Response time is under 1 second (1000ms)",
+							"pm.test(\"Response time is less than 1000ms / 1s\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://ensekapicandidatetest.azurewebsites.net/buy/3/100",
+					"protocol": "https",
+					"host": [
+						"ensekapicandidatetest",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"buy",
+						"3",
+						"100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orders",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Automated API Validations to verify Orders details",
+							"",
+							"//Check API Response Status Code",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Check API Response contains a JSON body",
+							"pm.test(\"Response has a JSON body\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"//Check API Response contains expected properties",
+							"pm.test(\"Verify API Response contains all the expected properties\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].id).to.be.a(\"string\") &&",
+							"    pm.expect(jsonData[0].fuel).to.be.a(\"string\") &&",
+							"    pm.expect(jsonData[0].quantity).to.be.a(\"number\") &&",
+							"    pm.expect(jsonData[0].time).to.be.a(\"string\");",
+							"});",
+							"",
+							"",
+							"// Verify if there are any orders present for current date ",
+							"// To check recently placed order(s) using '/Buy' API in the previous step  ",
+							"const moment = require(\"moment\")",
+							"let isToday = moment().format(\"DD MMM YYYY\")",
+							"",
+							"pm.test(\"Response body contains Order data for Current Day: \" + isToday, () => {",
+							"    _.each(jsonData => {",
+							"    pm.expect(pm.response.text()).to.include(isToday);",
+							"    })",
+							"});",
+							"",
+							"",
+							"//Sample check to verify Electric Energy purchased in the previous API call",
+							"//This is a static check for Electric type with quantity '100' purchased on current day",
+							"let jsonData = pm.response.json()",
+							"",
+							"pm.test(\"Response body contains Electric Order data for Current Day: \" + isToday+ \" with the order quantity as '100'\", () => {",
+							"    _.each(jsonData => {",
+							"        pm.expect(jsonData.fuel).to.eql(\"Elec\") &&",
+							"        pm.expect(jsonData.quantity).to.include('100') &&",
+							"        pm.expect(pm.response.text()).to.include(isToday);",
+							"    })",
+							"})",
+							"",
+							"",
+							"//Verify the API Response time is under 1 second (1000ms)",
+							"pm.test(\"Response time is less than 1000ms / 1s\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ensekapicandidatetest.azurewebsites.net/orders",
+					"protocol": "https",
+					"host": [
+						"ensekapicandidatetest",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Automated API Validations to verify Reset details",
+							"",
+							"//Check API Response Status Code",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Check API Response contains a JSON body",
+							"pm.test(\"Response has a JSON body\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"//Check API Response message property has a value 'Success'",
+							"pm.test(\"Response message property contains the value 'Success'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql('Success');",
+							"});",
+							"",
+							"",
+							"//Verify the API Response time is under 1 second (1000ms)",
+							"pm.test(\"Response time is less than 1000ms / 1s\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NTYxMDE3MiwianRpIjoiZjEyNTc0M2EtMTBjZC00MTI5LTgwODYtNWI0YTQ1ODJhODgwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE2NjU2MTAxNzIsImV4cCI6MTY2NTYxMTA3MiwicGFzc3dvcmQiOiJ0ZXN0aW5nIn0.IESnIWLIcX5vV2zfQIGiBoiOIFmAaQUM4YPL48HftLM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://ensekapicandidatetest.azurewebsites.net/reset",
+					"protocol": "https",
+					"host": [
+						"ensekapicandidatetest",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"reset"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
