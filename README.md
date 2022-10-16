@@ -3,7 +3,7 @@
 
 **Author:** Santosh Doreswamy
 
-**Intended Audience:** ENSEK Limited - Inrternal Hiring and Review Team's
+**Intended Audience:** ENSEK Limited - Internal Hiring and Review Team
 
 
 **Description:** This repo contains ENSEK Technical Test related delivarables. 
@@ -26,12 +26,12 @@
          # Second collection contains the API's that are fully parameterized / automated but has not been tested as the API's are not in working condition.
   
     
-  3. ENSEKCandidateTest
+  2. ENSEKCandidateTest
     # This is a Visual Studio Project that was created to automate few Test Cases / Scenarios for ENSEK Energy's Web Application testing.
     # The project is created as a NUnit Test Project in VS for Mac.
     # Tests are automated using BDD technique using C# scripting and Specflow for implementation.
 
   
-  _**Foot Note:** All deliverables were created on a Mac machine and might have few formatting issues when downloaded / viewed on Windows machines._
+  _**Foot Note:** All deliverables were created on a Mac machine and might have formatting issues when downloaded / viewed on Windows machines._
   
 
